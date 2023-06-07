@@ -8,7 +8,7 @@ def main():
     choice = input(">>>").upper()
     while choice != "Q":
         if choice == "G":
-            score = get_valid_score("Enter score: ", 0, 100)
+            score = get_valid_input("Enter score: ", 0, 100)
         elif choice == "P":
 
         elif choice == "S":
