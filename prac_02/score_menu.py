@@ -7,18 +7,18 @@ MENU = """(G)et
 def main():
     """Interactive menu."""
     print(MENU)
-    choice = input(">>>").upper()
+    choice = input(">>> ").upper()
     while choice != "Q":
         if choice == "G":
             score = get_valid_input("Enter score: ", 0, 100)
         elif choice == "P":
             print(determine_result(score))
         elif choice == "S":
-
+            print(convert_score_to_star(score))
         else:
             print("Invalid ")
         print(MENU)
-        choice = input(">>>").upper()
+        choice = input(">>> ").upper()
     print("Farewell")
 
 
@@ -41,6 +41,11 @@ def determine_result(score):
         return "Pass"
     else:
         return "Excellent"
+
+def convert_score_to_star(score):
+    """Convert the score to the equivalent star amount"""
+    stars = score * '*'
+    return stars
 
 
 
