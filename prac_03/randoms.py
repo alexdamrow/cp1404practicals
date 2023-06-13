@@ -18,6 +18,9 @@
 # The largest number that could have been printed was 5.5 and the smallest is
 # 2.5
 
+import random
+
+print(random.randint(0, 100))
 
 
 
