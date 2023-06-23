@@ -1,3 +1,9 @@
+"""
+Quick Pick program
+"""
+
+
+
 import random
 
 MIN_BOUNDARY = 1
@@ -6,7 +12,7 @@ AMOUNT_OF_NUMBERS = 6
 
 
 def main():
-    """Quick picks"""
+    """Quick picks - get rows of random numbers"""
     quick_picks = get_valid_integer("How many quick picks: ", 0)
     for i in range(quick_picks):
         numbers = []
@@ -20,6 +26,7 @@ def main():
 
 
 def get_valid_integer(prompt, minimum):
+    """Get a valid integer."""
     number = int(input(prompt))
     while number < minimum:
         print("Invalid input")
