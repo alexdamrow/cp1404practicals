@@ -1,11 +1,15 @@
 """
 Emails
 Estimated: 35 minutes
-
+Actual: 45 minutes
+"""
+"""
+Dictionary with email and name as key and value
 """
 
 
 def main():
+    """Create and print dictionary based around emails."""
     email_to_name = {}
     email = input("Email: ")
     while email != "":
@@ -21,6 +25,7 @@ def main():
 
 
 def extract_name_from_email(email):
+    """Extract name from email."""
     username = email.split("@")[0]
     parts = username.split(".")
     name = " ".join(parts).title()
