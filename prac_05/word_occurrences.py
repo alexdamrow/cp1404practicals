@@ -1,7 +1,7 @@
 """
 Word Occurrence
 Estimate: 25 minutes
-Actual:
+Actual: 28 minutes
 """
 
 word_to_count = {}
@@ -15,7 +15,7 @@ for word in words:
 
 words = list(word_to_count.keys())
 words.sort()
-
+longest_word = max(len(word) for word in words)
 for word in words:
-    print(f"{word} : {word_to_count[word]}")
+    print(f"{word:{longest_word}} : {word_to_count[word]}")
 
