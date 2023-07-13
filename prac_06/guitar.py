@@ -2,6 +2,8 @@
 Estimated time: 40 minutes
 Actual time: """
 
+YEAR = 2023
+VINTAGE_THRESHOLD = 50
 
 class Guitar:
     def __init__(self, name="", year=0, cost=0):
@@ -13,8 +15,8 @@ class Guitar:
         return f"{self.name} ({self.year}) : ${self.cost}"
 
     def get_age(self):
-        age = 2022 - self.year
+        age = YEAR - self.year
         return age
 
     def is_vintage(self):
-        return self.get_age() >= 50
+        return self.get_age() >= VINTAGE_THRESHOLD
