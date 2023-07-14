@@ -9,7 +9,7 @@ VINTAGE_THRESHOLD = 50
 class Guitar:
     def __init__(self, name="", year=0, cost=0):
         """
-        Initialise a Guitar instance.
+        Initialise a Programming language instance.
         name: string, name of the guitar
         year: integer, year the guitar was first produced
         cost: float, price of the guitar
