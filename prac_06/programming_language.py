@@ -9,7 +9,7 @@ class ProgrammingLanguage:
         Initialise a Programming language instance.
         name: string, the name of the programming language
         typing: string, is the language dynamic or static
-        reflection: string, the language is reflective
+        reflection: bool, the language is reflective
         year: integer, year that language was first used
         """
         self.name = name
@@ -18,6 +18,7 @@ class ProgrammingLanguage:
         self.year = year
 
     def __str__(self):
+        """Return string representation of data in a ProgrammingLanguage object."""
         return f"{self.name}, {self.typing} Typing, Reflection={self.reflection}, First appeared in {self.year}"
 
     def is_dynamic(self):
