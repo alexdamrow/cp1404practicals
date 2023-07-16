@@ -7,9 +7,10 @@ VINTAGE_THRESHOLD = 50
 
 
 class Guitar:
+    """Represent a Guitar object"""
     def __init__(self, name="", year=0, cost=0):
         """
-        Initialise a Programming language instance.
+        Initialise a Guitar instance.
         name: string, name of the guitar
         year: integer, year the guitar was first produced
         cost: float, price of the guitar
@@ -19,7 +20,8 @@ class Guitar:
         self.cost = cost
 
     def __str__(self):
-        return f"{self.name} ({self.year}) : ${self.cost}"
+        """Return string representation of data in a Guitar object."""
+        return f"{self.name} ({self.year}) : ${self.cost:,.2f}"
 
     def get_age(self):
         """Get the age of a guitar."""
@@ -28,4 +30,5 @@ class Guitar:
 
     def is_vintage(self):
         """Determine if a guitar is vintage based off a threshold."""
-        return  "(vintage)" if self.get_age() >= VINTAGE_THRESHOLD else ""
+        return self.get_age() >= VINTAGE_THRESHOLD
+
