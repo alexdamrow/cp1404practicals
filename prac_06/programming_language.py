@@ -4,6 +4,7 @@ Actual time: 35 minutes """
 
 
 class ProgrammingLanguage:
+    """Represent information about a programming language."""
     def __init__(self, name="", typing="", reflection="", year=0):
         """
         Initialise a Programming language instance.
