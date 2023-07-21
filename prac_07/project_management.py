@@ -21,7 +21,6 @@ def main():
     print(MENU)
     menu_choice = input(">>> ").upper()
     while menu_choice != "Q":
-        projects.sort()
         if menu_choice == "L":
             file_name = input("File name: ")
             load_file(file_name, projects)
@@ -29,13 +28,15 @@ def main():
             file_name = input("File name: ")
             save_file(file_name, projects)
         elif menu_choice == "D":
+            projects.sort()
             display_projects(projects)
         elif menu_choice == "F":
-            pass
+            projects.sort(key=operator.attrgetter('start_date'))
+            filter_project(projects)
+
         elif menu_choice == "A":
             add_project(projects)
         elif menu_choice == "U":
-            projects.sort(key=operator.attrgetter('start_date'))
             update_project(projects)
         else:
             print("Invalid input")
@@ -48,6 +49,15 @@ def main():
     print("Thank you for using custom-built project management software")
 
 
+def filter_project(projects):
+    """Filter project based on date."""
+    start_date = input("Show projects that start after the date (dd/mm/yyyy): ")
+    start_date = datetime.datetime.strptime(start_date, "%d/%m/%Y").date()
+    for project in projects:
+        if project.start_date >= start_date:
+            print(project)
+
+
 def update_project(projects):
     """Update a projects percentage and priority."""
     for i, project in enumerate(projects):
@@ -55,12 +65,17 @@ def update_project(projects):
     project_choice = int(input("Project choice: "))
     print(projects[project_choice])
     project = projects[project_choice]
-    new_percentage = int(input("New Percentage: "))
-    if new_percentage != 0:
+    try:
+        new_percentage = int(input("New Percentage: "))
         project.completion_percentage = new_percentage
-    new_priority = int(input("New Priority: "))
-    if new_priority != 0:
+    except ValueError:
+        pass
+    try:
+        new_priority = int(input("New Priority: "))
         project.priority = new_priority
+    except ValueError:
+        pass
+
 
 
 def add_project(projects):
