@@ -1,5 +1,8 @@
 import datetime
+import operator
+
 from prac_07.project import Project
+from operator import attrgetter
 
 MENU = """- (L)oad projects
 - (S)ave projects
@@ -31,15 +34,33 @@ def main():
             pass
         elif menu_choice == "A":
             add_project(projects)
-
-
-
+        elif menu_choice == "U":
+            projects.sort(key=operator.attrgetter('start_date'))
+            update_project(projects)
+        else:
+            print("Invalid input")
 
         print(MENU)
         menu_choice = input(">>> ").upper()
 
     file_name = "projects.txt"
     save_file(file_name, projects)
+    print("Thank you for using custom-built project management software")
+
+
+def update_project(projects):
+    """Update a projects percentage and priority."""
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
+    project_choice = int(input("Project choice: "))
+    print(projects[project_choice])
+    project = projects[project_choice]
+    new_percentage = int(input("New Percentage: "))
+    if new_percentage != 0:
+        project.completion_percentage = new_percentage
+    new_priority = int(input("New Priority: "))
+    if new_priority != 0:
+        project.priority = new_priority
 
 
 def add_project(projects):
