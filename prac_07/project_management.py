@@ -24,6 +24,21 @@ def main():
         if menu_choice == "L":
             file_name = input("File name: ")
             load_file(file_name, projects)
+        elif menu_choice == "S":
+            file_name = input("File name: ")
+            save_file(file_name, projects)
+    file_name = "projects.txt"
+    save_file(file_name, projects)
+
+
+def save_file(file_name, projects):
+    """Save a file."""
+    out_file = open(file_name, 'w')
+    for project in projects:
+        print(
+            f"{project.name} {project.start_date} {project.priority} {project.cost_estimate} {project.completion_percentage}",
+            file=out_file)
+    out_file.close()
 
 
 def load_file(file_name, projects):
