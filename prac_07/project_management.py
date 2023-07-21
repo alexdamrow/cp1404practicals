@@ -27,10 +27,32 @@ def main():
             save_file(file_name, projects)
         elif menu_choice == "D":
             display_projects(projects)
+        elif menu_choice == "F":
+            pass
+        elif menu_choice == "A":
+            add_project(projects)
+
+
+
+
+        print(MENU)
         menu_choice = input(">>> ").upper()
 
     file_name = "projects.txt"
     save_file(file_name, projects)
+
+
+def add_project(projects):
+    """Add new project."""
+    print("Let's add a new project")
+    name = input("Name: ")
+    date = input("Start date (dd/mm/yyyy): ")
+    date = datetime.datetime.strptime(date, "%d/%m/%Y").date()
+    priority = int(input("Priority: "))
+    cost_estimate = float(input("Cost estimate: $"))
+    percent_complete = int(input("Percent complete: "))
+    project = Project(name, date, priority, cost_estimate, percent_complete)
+    projects.append(project)
 
 
 def display_projects(projects):
