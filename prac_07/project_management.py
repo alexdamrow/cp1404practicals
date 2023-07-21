@@ -15,8 +15,6 @@ def main():
     projects = []
     file_name = "projects.txt"
     load_file(file_name, projects)
-    for project in projects:
-        print(project)
     print(MENU)
     menu_choice = input(">>> ").upper()
     while menu_choice != "Q":
@@ -27,8 +25,24 @@ def main():
         elif menu_choice == "S":
             file_name = input("File name: ")
             save_file(file_name, projects)
+        elif menu_choice == "D":
+            display_projects(projects)
+        menu_choice = input(">>> ").upper()
+
     file_name = "projects.txt"
     save_file(file_name, projects)
+
+
+def display_projects(projects):
+    """Displays projects if they are completed or not."""
+    print("Incomplete projects: ")
+    for project in projects:
+        if not project.is_completed():
+            print(project)
+    print("Completed projects: ")
+    for project in projects:
+        if project.is_completed():
+            print(project)
 
 
 def save_file(file_name, projects):
