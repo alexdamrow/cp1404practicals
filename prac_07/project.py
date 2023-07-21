@@ -12,7 +12,7 @@ class Project:
         """
         Initialise a Project instance
         name: string, what the task is
-        start_date: datetime.date, start date of task
+        start_date: datetime, start date of task
         priority: int, the order of the tasks
         cost_estimate: float, how much it will cost to do task
         completion_percentage: int, how close to completing task
@@ -28,4 +28,9 @@ class Project:
         return f"{self.name}, start: {self.start_date: %d/%m/%Y}, priority {self.priority}, estimate: ${self.cost_estimate}, completion: {self.completion_percentage}%"
 
     def __lt__(self, other):
+        """Return whether one value is less than the other."""
         return self.priority < other.priority
+
+    def is_completed(self):
+        """Return true or false if percentage is 100."""
+        return self.completion_percentage == 100
