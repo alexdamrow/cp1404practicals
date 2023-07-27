@@ -12,6 +12,7 @@ FACTOR_MILES_TO_KM = 1.60934
 
 
 class ConvertMilesKmApp(App):
+    """App for converting miles to kilometers"""
     output_km = StringProperty()
 
     def build(self):
@@ -22,15 +23,20 @@ class ConvertMilesKmApp(App):
 
     def handle_calculations(self, text):
         """Handle the calculations."""
-        miles = float(text)
+        miles = self.check_valid(text)
         self.output_km = str(miles * FACTOR_MILES_TO_KM)
 
     def handle_increment(self, text, change):
         """Handle the up and down button and update the input."""
-        miles = float(text) + change
+        miles = self.check_valid(text) + change
         self.root.ids.input_number.text = str(miles)
 
-
+    def check_valid(self, text):
+        """Check if an input is valid"""
+        try:
+            return float(text)
+        except ValueError:
+            return 0.0
 
 
 ConvertMilesKmApp().run()
