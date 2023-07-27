@@ -2,7 +2,7 @@
 CP1404 Practical 8
 Miles to Kilometers Converter
 Estimated time: 40 minutes
-Actual time:
+Actual time: 1hr
 """
 from kivy.app import App
 from kivy.lang import Builder
