@@ -7,6 +7,7 @@ from taxi import Taxi
 
 class SilverServiceTaxi(Taxi):
     """Specialised version of Taxi class, that includes fanciness and flagfall."""
+    flagfall = 4.50
 
     def __init__(self, name, fuel, fanciness):
         """Initialises a SilverServiceTaxi instance, based on parent class Taxi."""
@@ -17,7 +18,7 @@ class SilverServiceTaxi(Taxi):
 
     def __str__(self):
         """Return a string like a Taxi, but with a flag fall"""
-        return f"{super().__str__()}"
+        return f"{super().__str__()} plus flagfall of ${self.flagfall}"
 
     def get_fare(self):
         """Return price from trip."""
