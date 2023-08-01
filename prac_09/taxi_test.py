@@ -1,3 +1,7 @@
+"""
+CP1404
+Test for class Taxi
+"""
 from taxi import Taxi
 
 
