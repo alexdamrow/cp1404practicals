@@ -55,10 +55,9 @@ run_tests()
 # (PyCharm may see your >>> doctest comments and run doctests anyway.)
 doctest.testmod()
 
-# TODO: 4. Fix the failing is_long_word function
+
 # (don't change the tests, change the function!)
 
-# TODO: 5. Write and test a function to format a phrase as a sentence,
 # starting with a capital and ending with a single full stop.
 # Important: start with a function header and just use pass as the body
 # then add doctests for 3 tests:
@@ -67,3 +66,16 @@ doctest.testmod()
 # and one more you decide (one that is valid!)
 # test this and watch the tests fail
 # then write the body of the function so that the tests pass
+
+def format_phrase_to_sentence(phrase):
+    """Format a phrase to a sentance
+    >>> format_phrase_to_sentence('hello')
+    should return 'Hello.'
+    >>> format_phrase_to_sentence('It is a parrot.')
+    should return 'It is a parrot.'
+    >>> format_phrase_to_sentence('Where are the cats')
+    should return 'Where are the cats.'"""
+
+    if phrase[-1] != ".":
+        phrase += "."
+    return phrase.capitalize()
