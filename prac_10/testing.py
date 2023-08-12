@@ -22,13 +22,13 @@ def is_long_word(word, length=5):
     >>> is_long_word("Python", 6)
     True
     """
-    return len(word) > length
+    return len(word) >= length
 
 
 def run_tests():
     """Run the tests on the functions."""
     # assert test with no message - used to see if the function works properly
-    # assert repeat_string("Python", 1) == "Python"
+    assert repeat_string("Python", 1) == "Python"
     # the test below should fail
     assert repeat_string("hi", 2) == "hi hi"
 
@@ -51,7 +51,6 @@ def run_tests():
 
 
 run_tests()
-
 
 # (PyCharm may see your >>> doctest comments and run doctests anyway.)
 doctest.testmod()
